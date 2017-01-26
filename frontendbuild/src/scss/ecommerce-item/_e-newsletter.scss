@@ -1,0 +1,72 @@
+.de-newsletter {
+	position: relative;
+	width: 40%;
+	height: 450px;
+	max-height: 450px;
+	overflow: hidden;
+	&--with-media {
+		width: 75%;
+	}
+	input {
+		display: inline-block;
+		float: left;
+		height: 47px;
+		&[type='email'] {
+			width: calc(100% - 200px);
+		}
+		&[type='submit'] {
+			width: 200px;
+		}
+	}
+	&__left {
+		position: relative;
+		width: calc(50% - 10px);
+		height: 100%;
+		display: inline-block;
+		float: left;
+		margin-right: 10px;
+		overflow: hidden;
+		.slick {
+			&-arrow {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 1;
+			}
+			&-prev {
+				left: 0;
+			}
+			&-next {
+				right: 0;
+			}
+		}
+	}
+	&__right {
+		position: relative;
+		width: calc(50% - 10px);
+		height: 100%;
+		display: inline-block;
+		float: left;
+		margin-left: 10px;
+		.table {
+			display: table;
+			width: 100%;
+			height: 100%;
+		}
+		.valign-middle {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	&__media {
+		display: inline-block;
+		float: left;
+		width: 100%;
+		height: 100%;
+	}
+	&__close {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}

@@ -1,0 +1,118 @@
+.de-footer-wrapper {
+	.de-footer-social-logo {
+		display: flex;
+		align-items: center;
+		margin: 0;
+		.is-default {
+			padding: 0 4px;
+		}
+		i {
+			line-height: 2.400em;
+		}
+	}
+	.de-footer-menu-wrapper {
+		li {
+			margin: 0;
+			a {
+				padding: 0 .815em;
+				font-size: .75em;
+				line-height: 5em;
+			}
+			&:first-child {
+				a {
+					padding-left: 0;
+				}
+			}
+			&:last-child {
+				a {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	.de-copyright {
+		p {
+			font-size: .75em;
+			margin: 0;
+			line-height: 5em;
+		}
+	}
+	.de-payment-logo {
+		display: flex;
+		align-items: center;
+	}
+	.de-footer-menu-wrapper {
+		display: flex;
+		justify-content: flex-start;
+	}
+	.de-footer-inner {
+		.de-footer-logo {
+			padding-bottom: 1.875rem;
+		}
+		.de-footer-description {
+			p {
+				margin-bottom: 2em;
+			}
+		}
+		.de-footer-social-logo {
+			min-height: 130px;
+		}
+		.de-payment-logo {
+			min-height: 130px;
+		}
+		.full {
+			.de-footer-logo {
+				text-align: center;
+			}
+			.de-footer-description {
+				text-align: center;
+			}
+			.de-footer-social-logo {
+				justify-content: center;
+			}
+			.de-payment-logo {
+				justify-content: center;
+			}
+		}
+	}
+	.de-sub-footer {
+		.de-payment-logo {
+			min-height: 60px;
+		}
+		.de-footer-social-logo {
+			min-height: 60px;
+		}
+		.de-sub-footer-inner--right {
+			.de-footer-menu-wrapper {
+				display: flex;
+				justify-content: flex-end;
+			}
+			.de-copyright {
+				text-align: right;
+			}
+			.de-footer-social-logo {
+				text-align: right;
+			}
+			.de-payment-logo {
+				justify-content: flex-end;
+			}
+		}
+		.de-sub-footer-inner--full {
+			.de-copyright {
+				text-align: center;
+			}
+			.de-footer-menu-wrapper {
+				justify-content: center;
+			}
+			.de-payment-logo {
+				justify-content: center;
+			}
+			.de-footer-social-logo {
+				text-align: center;
+			}
+		}
+	}
+	div ~ .de-footer-social-logo {
+		min-height: 60px !important;
+	}
+}

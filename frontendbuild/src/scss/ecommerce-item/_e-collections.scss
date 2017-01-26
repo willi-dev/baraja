@@ -1,0 +1,22 @@
+/* .smart-col {
+	width: 50%;
+	float: left;
+} */
+.de-collection {
+	&__container {
+		overflow: hidden;
+		&-left,
+		&-right,
+		&-center {
+			padding: 0;
+		}
+	}
+	&__item {
+		position: relative;
+		&-caption-overlay {
+			position: absolute;
+			bottom: 0;
+			padding: 20px;
+		}
+	}
+}

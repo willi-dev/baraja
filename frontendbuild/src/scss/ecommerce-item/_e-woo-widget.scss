@@ -1,0 +1,393 @@
+/* 
+ * Woocommerce Rating Widget 
+ */
+
+.widget_rating_filter {
+	a {
+		display: block;
+		width: 100%;
+		text-align: right;
+	}
+	.star-rating {
+		float: left !important;
+	}
+}
+
+/* 
+ * Woocommerce Cart Widget
+ */
+
+.widget_shopping_cart {
+	.de-cart {
+		&__list {
+			@include grid-column(12);
+			&-item {
+				@include clearfix;
+				padding-top: 0.625rem;
+				padding-bottom: 0.625rem;
+				border-bottom: 1px solid #ebebeb;
+				&:first-child {
+					padding-top: 0;
+				}
+				&-media {
+					@include grid-column(4);
+					padding-left: 0 !important;
+				}
+				&-detail {
+					@include grid-column(8);
+					@include grid-column-end;
+					padding-right: 0 !important;
+					display: flex;
+					flex-wrap: wrap;
+					.remove {
+						order: 4;
+						text-align: right;
+						box-shadow: none;
+						width: 100%;
+					}
+					.de-cart__list-item-qty {
+						order: 2;
+					}
+					h5 {
+						order: 1;
+						width: 100%;
+					}
+					.woocommerce-Price-amount {
+						order: 3;
+					}
+					.de-cart__list-item-action {
+						display: none;
+					}
+					.quantity::after {
+						content: 'x';
+						margin-left: 5px;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+		&__summary {
+			@include grid-column(12);
+			margin-top: 30px;
+			.count {
+				display: none;
+			}
+			.woocommerce-Price-amount {
+				float: right;
+			}
+			.total {
+				text-transform: uppercase;
+				font-weight: 900;
+			}
+			.wc-forward {
+				width: 100%;
+				margin-bottom: 0.625rem;
+				&.checkout {
+					margin-bottom: 0;
+				}
+			}
+			.de-cart__disclaimer {
+				display: none;
+			}
+		}
+	}
+}
+
+/* 
+ * Woocommerce Filter Layer
+ */
+
+.widget_layered_nav {
+	.count {
+		float: right;
+	}
+	.dropdown_layered_nav_color {
+		border: none;
+		border-bottom: 1px solid #ebebeb;
+	}
+}
+
+/* 
+ * Woocommerce Filter Price
+ */
+
+.widget_price_filter {
+	.price_slider {
+		height: 2px !important;
+		margin-left: 12px !important;
+		margin-right: 12px !important;
+	}
+	.ui-slider-handle {
+		width: 24px !important;
+		height: 24px !important;
+		top: -12px !important;
+		background-color: #fff !important;
+		margin-left: -12px !important;
+		box-shadow: 1px 1px 3px #ccc;
+	}
+	.price_slider {
+		background-color: #ebebeb !important;
+	}
+	.ui-slider-range {
+		background-color: #00a651 !important;
+	}
+}
+
+/* 
+ * Woocommerce Product Category
+ */
+
+.widget_product_categories {
+	ul {
+		li {
+			border: none;
+			margin: 0;
+			padding: 0;
+			&.cat-parent {
+				> span::after {
+					content: '';
+					border-top: 5px solid #6d6d6d;
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					display: inline-block;
+					margin-left: 0.625rem;
+					margin-right: 0.625rem;
+				}
+			}
+		}
+		&.product-categories {
+			> li {
+				border-bottom: 1px solid #ebebeb;
+				padding-top: 0.625rem;
+				padding-bottom: 1rem;
+				&:first-child {
+					padding-top: 0;
+				}
+				&:last-child {
+					border: none;
+					padding-bottom: 0;
+				}
+			}
+		}
+		&.children {
+			margin-bottom: 0;
+			margin-left: 1rem;
+		}
+	}
+	.count {
+		float: right;
+	}
+	.dropdown_product_cat {
+		text-transform: capitalize;
+		border: none;
+		border-bottom: 1px solid #ebebeb;
+	}
+}
+
+/* 
+ * Woocommerce Product
+ */
+
+.widget_products {
+	.de-widget-product {
+		@include clearfix;
+		margin: 0 0 0.625rem;
+		padding: 0 0 0.625rem;
+		&:last-child {
+			margin: 0;
+			padding: 0;
+		}
+		&__media {
+			@include grid-column(4);
+			padding-left: 0 !important;
+		}
+		&__detail {
+			@include grid-column(8);
+			padding-right: 0 !important;
+		}
+		&__title {
+			font-size: 1em;
+			margin-bottom: .725em;
+		}
+		&__price {
+			margin: 0;
+		}
+	}
+}
+
+/* 
+ * Woocmmerce Product Search
+ */
+
+.widget_product_search {
+	.woocommerce-product-search {
+		overflow: hidden;
+		position: relative;
+		&::after {
+			content: "\e87a";
+			font-family: outicons;
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			transform: translateY(-50%);
+			color: #fff;
+			font-size: 14px;
+		}
+	}
+	.search-field {
+		width: calc(100% - 39px);
+		float: left;
+		border: 1px solid #ebebeb;
+		margin: 0;
+		&:focus {
+			border: 1px solid #ebebeb;
+		}
+	}
+	input[type="submit"] {
+		min-width: 0;
+		width: 39px;
+		height: 39px;
+		float: left;
+		font-size: 0;
+	}
+}
+
+/* 
+ * Woocommerce Tagcloud
+ */
+
+.widget_product_tag_cloud {
+	.tagcloud {
+		text-align: center;
+		a {
+			font-size: .688em !important;
+			font-weight: 400;
+			padding: 9px 20px;
+			text-transform: uppercase;
+			border: 1px solid #e5e5e5;
+			border-radius: 8px;
+			background: 0 0;
+			display: inline-block;
+			margin: 0 4px 8px 0;
+			box-shadow: none !important;
+			&:hover {
+				background: #000;
+				transition: background-color .4s ease;
+			}
+		}
+	}
+}
+
+/* 
+ * Woocommerce Top Rated
+ */
+
+.widget_top_rated_products {
+	.de-widget-product {
+		@include clearfix;
+		margin: 0 0 0.625rem;
+		padding: 0 0 0.625rem;
+		&:last-child {
+			margin: 0;
+			padding: 0;
+		}
+		&__media {
+			@include grid-column(4);
+			padding-left: 0 !important;
+		}
+		&__detail {
+			@include grid-column(8);
+			padding-right: 0 !important;
+		}
+		&__title {
+			font-size: 1em;
+			margin-bottom: .725em;
+		}
+		&__price {
+			margin: 0;
+		}
+	}
+}
+
+/* 
+ * Dahz Commerce Widget: Brands
+ */
+
+.widget_dahz_framework_widget_brand {
+	.de-widget-brand {
+		&--layout-1 {
+			img {
+				margin-bottom: 20px;
+				+ .de-widget-brand__title {
+					display: none;
+				}
+			}
+		}
+		&--layout-2 {
+			width: 100%;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			&:first-of-type {
+				padding-top: 0;
+			}
+			&:last-of-type {
+				padding-bottom: 0;
+			}
+			.de-widget-brand__title {
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* 
+ * Dahz Commerce Widget: Product by SKU/ID 
+ */
+
+.widget_dahz_framework_widget_product_by_id {
+	.de-widget-product {
+		@include clearfix;
+		margin: 0 0 0.625rem;
+		padding: 0 0 0.625rem;
+		border-bottom: 1px solid #ebebeb;
+		&:last-child {
+			margin: 0;
+			padding: 0;
+			border: none;
+		}
+		&__media {
+			@include grid-column(4);
+			padding-left: 0 !important;
+		}
+		&__detail {
+			@include grid-column(8);
+			padding-right: 0 !important;
+		}
+		&__title {
+			font-size: 1em;
+			margin-bottom: .725em;
+		}
+		&__price {
+			margin: 0;
+		}
+	}
+}
+
+/* 
+ *Dahz Commerce Widget: Color Swatches 
+ */
+
+.widget_color_filter {
+	.df-widget-color-filter-list {
+		padding: 0;
+		border: none;
+		a {
+			text-align: right;
+			display: block;
+			box-shadow: none;
+		}
+		.color {
+			float: left;
+		}
+	}
+}
