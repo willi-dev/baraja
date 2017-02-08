@@ -1,0 +1,130 @@
+.no-padding{
+	padding:0;
+}
+#map{
+	/*height:550px;*/
+}
+.gm-style-iw {
+	/*top: 72px !important;*/
+}
+.gm-style-iw + div{
+	/*display: none;*/
+}
+.info-marker-place_name{
+	background: #282c37;
+	color:#fff;
+	padding: 5px 10px 5px 10px;
+	font-size:11px;
+	border-radius: 10px 0px 0px 10px;
+}
+.marker-label-place{
+	background: #282c37;
+	color:#fff;
+	padding: 5px 10px 5px 10px;
+	font-size:11px;
+	border-radius: 10px 0px 0px 10px;
+}
+#side-main-menu{
+	background: #313541;
+	color:#fff;
+	border-right:#20232c solid 1px;
+}
+ul.list-main-menu{
+	padding-left:0;
+	margin-bottom: 0;
+}
+.list-main-menu li{
+	border-bottom:#2c303b solid 1px;
+	transition: all 0.5s ease;
+}
+.list-main-menu li:hover, .list-main-menu li.active{
+	background: #72cdd2;
+	cursor: pointer;
+}
+.list-main-menu li a{
+	color: #fff;
+	text-decoration: none;
+}
+
+#side-main-content-menu{
+	background: #282c37;
+	/*min-height: 720px;*/
+	overflow:hidden;
+}
+.list-main-menu li, .list-places-name li, .list-main-menu li{
+	list-style: none;
+}
+ul.list-places-name li a{
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+ul.list-places-name li a:hover{
+	text-decoration: none;
+}
+ul.list-places-name{
+	padding-left:0;
+	margin-bottom:0;
+	font-size:12px;
+}
+.list-places-name li{
+	border-top:1px solid #242832;
+}
+
+.list-place-item-inner{
+	margin-top:10px;
+	margin-bottom: 10px;
+	padding:13px 4px 13px 35px;
+	transition: all 0.5s ease;
+}
+.list-place-item.active .list-place-item-inner, .list-place-item:hover .list-place-item-inner{
+	color:#92d72e;
+	background: #1c1f27;
+}
+
+ul.sub-list-places-name li.sub-list-place-item a{
+	color:#7c939b;
+	font-weight: normal;
+}
+.sub-list-places-name li{
+	border: none;
+}
+.sub-list-place-item{
+	margin: 10px 4px 10px 2px;
+}
+.list-place-item.has-submenu .sub-list-places-name{
+	display: none;
+}
+
+
+#header-content-map{
+	padding:50px;
+	background: #f4f7fa;
+	min-height:119px;
+}
+.header-content-title{
+	margin-top:0;
+	margin-bottom:0;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: bold;
+	color:#282c37;
+	float:left;
+	width:90%;
+}
+.config-list{
+	width:10%;
+	text-align: right;
+}
+.config-list a{
+	color:#282c37;
+	font-size:16px;
+}
+.side-area-desc{
+	display: none;
+	float:right;
+	position:relative;
+	width: 220px;
+	height: 100%;
+	background: #ccc;
+}
