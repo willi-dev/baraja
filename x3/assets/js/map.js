@@ -26,8 +26,8 @@ function setStyle(){
 	$('#side-main-content-menu').css({'height': windowInnerHeight})
 
 	var mainContentWidth = $('#main-content').width();
-	$('#side-main-content-menu').css({'width':'350px'})
-	var mainContentInnerWidth = mainContentWidth-350;
+	$('#side-main-content-menu').css({'width':'300px'})
+	var mainContentInnerWidth = mainContentWidth-300;
 	$( '#main-content-inner' ).css( {'width': mainContentInnerWidth+'px' }); 
 }
 /**
@@ -86,16 +86,6 @@ function clickEvent( markers ){
 	    	google.maps.event.trigger( markers[i], 'click' );
 	    })
 	})
-
-	// $('.list-place-item').click( function(e){
- //    	e.preventDefault();
- //    	$(this).siblings().removeClass('active');
- //    	$(this).addClass('active');
- //    	if( $(this).hasClass('has-submenu')){
- //    		$('.sub-list-places-name').toggle('slow');	
- //    	}
- //    })
-
 }
 
 /**
@@ -111,7 +101,13 @@ function initMap( responseDataPlaces ){
 	var listMarkers = [];
 	var bounds = new google.maps.LatLngBounds();
 	var styleOfMap = [
-	        { featureType: "all", stylers: [ { saturation: -40 }, { lightness: 40 } ] },
+	        { 
+	        	featureType: "all", 
+	        	stylers: [ 
+	        		{ saturation: -40 }, 
+	        		{ lightness: 40 } 
+	        	] 
+	        },
     	];
 	var mapOptions = {
 		mapTypeId: 'roadmap',
@@ -119,12 +115,13 @@ function initMap( responseDataPlaces ){
 		styles: styleOfMap,
 		
 	};
+	
 	var mapSelector = $('#map');
 	var idSideDesc;
 
 	// create a map
 	map = new google.maps.Map(document.getElementById('map'), mapOptions );
-
+	
 	for( var i = 0; i < dataPlaces.places.length; i++ ){
 		var position = new google.maps.LatLng( dataPlaces.places[i]['latitude'], dataPlaces.places[i]['longitude'] );
 		bounds.extend( position );
@@ -150,7 +147,11 @@ function initMap( responseDataPlaces ){
 		// console.log( infoWindow );
 
 		idSideDesc = 'side-area-description-'+i;
-		mapSelector.append( '<div id="'+idSideDesc+'" class="side-area-desc">'+dataPlaces.places[i]['place_name']+'</div>');
+		mapSelector.append( '<div id="'+idSideDesc+'" class="side-area-desc">'+ 
+								'<img src="'+dataPlaces.places[i]['img']+'" class="img-responsive" alt="'+dataPlaces.places[i]['place_name']+'"/>'+
+								'<h2>'+dataPlaces.places[i]['place_name']+'</h2>'+
+								'<p>'+dataPlaces.places[i]['description']+'</p>'+
+							'</div>');
 
 		// set zoom to default when map clicked
 		// map.addListener( 'click', function(){
@@ -159,7 +160,6 @@ function initMap( responseDataPlaces ){
 
 		// event when marker click
 		google.maps.event.addListener( marker, 'click', (function( marker, i ){
-
 			return function(){
 				map.setCenter( marker.getPosition() );
 				map.setZoom( 17 );
@@ -195,17 +195,14 @@ function initMap( responseDataPlaces ){
 			}
 		})(infoWindow, i) )
 		
-
 		map.fitBounds( bounds );
-
-
 	}
 
     // set responseDataPlaces to generateListPlaces
 	generateListPlaces( responseDataPlaces );
 
 	clickEvent( listMarkers );
-	
+
     $('.config-list a.close-desc').click( function( e ){
     	e.preventDefault();
     	// marker.setIcon(markerImage);
@@ -225,7 +222,6 @@ function initMap( responseDataPlaces ){
 function reStyleInfoWindow(){
 	var infoMarker = $( '.info-marker-place_name' );
 	var infoMarkerLength = $( '.info-marker-place_name' ).length;
-	console.log( infoMarkerLength );
 	var parentof, w;
 	for( var j = 0; j < infoMarkerLength; j++ ){
 		parentof = infoMarker.parent().parent().parent();
@@ -236,12 +232,8 @@ function reStyleInfoWindow(){
 			// console.log( j +' - '+  w );
 			// console.log( infoMarker.width() );
 		}
-		
 		parentof.css( { 'top': '72px' } )
 	}
-
-
-
 	var styleInfo = $( '.gm-style-iw' );
 	var styleInfoBG = styleInfo.prev();
 	var styleInfoX = styleInfo.next();
