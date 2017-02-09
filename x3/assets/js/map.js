@@ -4,7 +4,6 @@
 $(document).ready( function(){
 	// call getDataPlaces()
 	setStyle();
-	
     getDataPlaces();
    	
 })
@@ -41,8 +40,6 @@ function getDataPlaces(){
 		success: function( responseDataPlaces ){
 			// set responseDataPlaces to initMap
 			initMap( responseDataPlaces );
-
-			
 		}
 	})
 }
@@ -62,12 +59,10 @@ function generateListPlaces( responseDataPlaces ){
 	var listPlaceItem = $('.list-place-item');
 	listPlaceItem.eq(1).append( submenu ).addClass('has-submenu');
 
-	var submenuitem = '<li class="sub-list-place-item"><a href="#">ArtScience Museum</a></li>'+
-		'<li class="sub-list-place-item"><a href="#">Marina Bay Sands Skypark</a></li>'+
+	var submenuitem = '<li class="sub-list-place-item"><a href="#">ArtScience Museum</a></li>' +
+		'<li class="sub-list-place-item"><a href="#">Marina Bay Sands Skypark</a></li>' +
 		'<li class="sub-list-place-item"><a href="#">Double Helix Bridge</a></li>';
 	$('.list-place-item:eq(1) .sub-list-places-name').append(submenuitem);
-
-	
 }
 
 /**
@@ -80,9 +75,8 @@ function clickEvent( markers ){
 	    	$(this).siblings().removeClass('active');
 	    	$(this).addClass('active');
 	    	if( $(this).hasClass('has-submenu')){
-	    		$('.sub-list-places-name').toggle('slow');	
+	    		$('.sub-list-places-name').toggle('slow');
 	    	}
-
 	    	google.maps.event.trigger( markers[i], 'click' );
 	    })
 	})
@@ -93,7 +87,6 @@ function clickEvent( markers ){
  * initialize map 
  */
 function initMap( responseDataPlaces ){
-
 	var markerImage = 'assets/img/custom-marker.png';
 	var markerImageHover = 'assets/img/custom-marker-hover.png';
 	var dataPlaces = responseDataPlaces;
@@ -113,7 +106,6 @@ function initMap( responseDataPlaces ){
 		mapTypeId: 'roadmap',
 		zoom: 15,
 		styles: styleOfMap,
-		
 	};
 	
 	var mapSelector = $('#map');
@@ -133,30 +125,23 @@ function initMap( responseDataPlaces ){
 		})
 
 		listMarkers.push( marker );
-		// console.log( marker );
 
 		var classInfoMarker = 'info-marker-place_name-'+i;
 
-		var infoPlaceName = '<div class="info-marker-place_name '+classInfoMarker+'">'+dataPlaces.places[i]['place_name']+'</div>';
+		var infoPlaceName = '<div class="info-marker-place_name '+ classInfoMarker +'">'+ dataPlaces.places[i]['place_name'] +'</div>';
 		infoWindow = new google.maps.InfoWindow( {
 			content: infoPlaceName
 		} );
 		infoWindow.open( map, marker );
 
-		var infoPlaceHover = '<div class="">'+dataPlaces.places[i]['place_name']+dataPlaces.places[i]['description'] + '</div>';
-		// console.log( infoWindow );
-
+		var infoPlaceHover = '<div class="">'+ dataPlaces.places[i]['place_name'] + dataPlaces.places[i]['description'] + '</div>';
+		
 		idSideDesc = 'side-area-description-'+i;
 		mapSelector.append( '<div id="'+idSideDesc+'" class="side-area-desc">'+ 
 								'<img src="'+dataPlaces.places[i]['img']+'" class="img-responsive" alt="'+dataPlaces.places[i]['place_name']+'"/>'+
 								'<h2>'+dataPlaces.places[i]['place_name']+'</h2>'+
 								'<p>'+dataPlaces.places[i]['description']+'</p>'+
 							'</div>');
-
-		// set zoom to default when map clicked
-		// map.addListener( 'click', function(){
-		// 	map.setZoom( 15 );
-		// })
 
 		// event when marker click
 		google.maps.event.addListener( marker, 'click', (function( marker, i ){
@@ -170,13 +155,14 @@ function initMap( responseDataPlaces ){
 				// marker.setIcon( markerImageHover );
 				// $('.info-marker-place_name').eq(i).css({'background' : '#92d72e'})
 			}
-		})(marker, i) );
+		})( marker, i ) );
 
 		// event when marker mouse over
 		google.maps.event.addListener( marker, 'mouseover', (function( marker, i ){
 			return function(){
 				marker.setIcon( markerImageHover );
-				$('.info-marker-place_name').eq(i).css({'background' : '#92d72e'})
+				$('.info-marker-place_name').eq(i).css({'background' : '#92d72e'});
+				reStyleInfoWindow('hover', i);
 			}
 		})( marker, i ) );
 
@@ -184,33 +170,32 @@ function initMap( responseDataPlaces ){
 		google.maps.event.addListener( marker, 'mouseout', ( function( marker, i ){
 			return function(){
 				marker.setIcon( markerImage );
-				$('.info-marker-place_name').eq(i).css({'background' : '#282c37'})
+				$('.info-marker-place_name').eq(i).css({'background' : '#282c37'});
+				reStyleInfoWindow('no-hover', i);
 			}
 		})( marker, i ) );
 
 		// re styling infowindow when domready
 		google.maps.event.addListener( infoWindow, 'domready', (function( infoWindow, i ){
 			return function(){
-				reStyleInfoWindow();
+				reStyleInfoWindow('no-hover', i);
 			}
-		})(infoWindow, i) )
-		
+		})( infoWindow, i ) );
+
 		map.fitBounds( bounds );
 	}
 
     // set responseDataPlaces to generateListPlaces
 	generateListPlaces( responseDataPlaces );
 
+	// click event
 	clickEvent( listMarkers );
 
     $('.config-list a.close-desc').click( function( e ){
     	e.preventDefault();
-    	// marker.setIcon(markerImage);
     	$('.list-place-item').removeClass('active');
     	$('.side-area-desc').css({'display': 'none'});
     	map.setZoom( 15 );
-    	// $('.info-marker-place_name').css({'background' : '#282c37'})
-    	
     })
 }
 
@@ -219,21 +204,24 @@ function initMap( responseDataPlaces ){
  * for re-styling info window of marker
  * reference: http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
  */ 
-function reStyleInfoWindow(){
+function reStyleInfoWindow( state, i ){
 	var infoMarker = $( '.info-marker-place_name' );
 	var infoMarkerLength = $( '.info-marker-place_name' ).length;
-	var parentof, w;
-	for( var j = 0; j < infoMarkerLength; j++ ){
-		parentof = infoMarker.parent().parent().parent();
-		
+	var parentof, w, left;
+
+	if( state == 'hover' ){
+		// infoMarker.css( { 'font-size' : '18px' } );
+	}else{
+		parentof = infoMarker.eq(i).parent().parent().parent();
 		if( parentof.hasClass('gm-style-iw') ){
-			// console.log( 'ada' );
 			w = parentof.width();
-			// console.log( j +' - '+  w );
-			// console.log( infoMarker.width() );
+			console.log( w );
+			left = (w/2)+2;
+			parentof.css( {'left': left+'px' } );
 		}
-		parentof.css( { 'top': '72px' } )
+		parentof.css( { 'top': '72px' } );
 	}
+
 	var styleInfo = $( '.gm-style-iw' );
 	var styleInfoBG = styleInfo.prev();
 	var styleInfoX = styleInfo.next();

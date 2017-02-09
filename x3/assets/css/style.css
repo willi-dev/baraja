@@ -114,15 +114,17 @@ ul.sub-list-places-name li.sub-list-place-item a{
 	font-weight: bold;
 	color:#282c37;
 	float:left;
-	width:90%;
+	width:85%;
 }
 .config-list{
-	width:10%;
+	width:15%;
+	float: right;
 	text-align: right;
 }
 .config-list a{
-	color:#282c37;
-	font-size:16px;
+	color: #647d80;
+	font-size: 20px;
+	padding:0 2px;
 }
 .side-area-desc{
 	display: none;
