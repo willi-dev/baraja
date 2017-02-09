@@ -43,7 +43,7 @@ ul.list-main-menu{
 	cursor: pointer;
 }
 .list-main-menu li a img{
-	padding:10px 30px 5px 30px;
+	padding:15px 30px 5px 30px;
 }
 .list-main-menu li a{
 	color: #677780;
@@ -54,7 +54,6 @@ ul.list-main-menu{
 .list-main-menu li.active a{
 	color: #fff;
 }
-
 #side-main-content-menu{
 	background: #282c37;
 	/*min-height: 720px;*/
@@ -79,7 +78,6 @@ ul.list-places-name{
 .list-places-name li{
 	border-top:1px solid #242832;
 }
-
 .list-place-item-inner{
 	margin-top:10px;
 	margin-bottom: 10px;
@@ -90,7 +88,6 @@ ul.list-places-name{
 	color:#92d72e;
 	background: #1c1f27;
 }
-
 ul.sub-list-places-name li.sub-list-place-item a{
 	color:#7c939b;
 	font-weight: normal;
@@ -104,8 +101,6 @@ ul.sub-list-places-name li.sub-list-place-item a{
 .list-place-item.has-submenu .sub-list-places-name{
 	display: none;
 }
-
-
 #header-content-map{
 	padding:50px;
 	background: #f4f7fa;
