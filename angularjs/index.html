@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Learn Angular v1.x</title>
+	
+</head>
+<body>
+	
+	<div ng-controller="FinanceController">
+
+		Your Salary ?
+		<input type="text" ng-model="salary"><br>
+		How Much should you invest in shopping? 
+		<input type="text" ng-model="percentage"> % <br>
+		The Amount to be spent on gadgets will be: 
+		<span>{{result() | currency}}</span>
+	</div>
+
+	<div ng-controller="GreetingController as greetingController">
+		
+		{{greetingController.greeting}} User! the current date/time is <span>{{greetingController.now | date:'medium' }}</span>. <br>
+		
+		<button ng-click="greetingController.getRandomHelloMessages()">Random Hello!!!</button>
+
+	</div>
+
+
+	<script src="asset/js/angular.js"></script>
+	<script src="asset/js/apps.js"></script>
+	<script src="asset/js/controller.js"></script>
+	
+</body>
+</html>
