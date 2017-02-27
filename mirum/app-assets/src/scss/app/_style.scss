@@ -1,7 +1,6 @@
 /* import google fonts */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
-
 html{
 	background: #fff;
 }
@@ -38,7 +37,7 @@ body{
 		&::after{
 			content: "";
 			position: absolute;
-			z-index: 1;
+			z-index: 1;  
 			pointer-events: none;
 			bottom: 0;
 			left: 0;
@@ -138,10 +137,8 @@ body{
 				}
 			}
 		}
-		
 	}
 }
-
 .about{
 	&__team{
 		&_title{
@@ -319,7 +316,6 @@ body{
 			background: url('../../img/customer_grid_bg.png');
 		}
 	}
-	
 }
 .projects{
 	&__section_title{
@@ -365,7 +361,6 @@ body{
 		.project__title{
 			margin-top:201px;
 			margin-bottom:133px;
-
 		}
 	}
 	.project{
@@ -408,7 +403,6 @@ body{
 					margin-right: 10px;
 					margin-bottom:30px;
 				}
-				
 			}
 		}
 		&__grid--items{
@@ -491,7 +485,6 @@ body{
 			}
 		}
 	}
-	
 }
 .footer{
 	a{
